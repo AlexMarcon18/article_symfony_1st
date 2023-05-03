@@ -1,20 +1,116 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AboutController!{% endblock %}
+{% block title %}Prépare ta config !{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="sidebar">
+        <p id="nav-title">Nos étapes</p>
+        <ol>
+            <li id="list-nav"><a href="#anchorphp">1. PHP 8</a></li>
+            <li id="list-nav"><a href="#anchorcomp">2. Composer</a> </li>
+            <li id="list-nav"><a href="#anchorcli">3. Symfony CLI</a> </li>
+            <li id="list-nav"><a href="#anchordb">4. SGBD</a> </li>
+        </ol>
+    </div>
+    <main id="article">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <h2>Configuration de l'environnement symfony</h2>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/alex/article-symfony5/src/Controller/AboutController.php'|file_link(0) }}">src/Controller/AboutController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/alex/article-symfony5/templates/about/index.html.twig'|file_link(0) }}">templates/about/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <hr>
+
+        <h3>
+            Mais qu'est-ce que symfony ?
+        </h3>
+
+        <p> Symfony est un framework qui représente un ensemble de composants (aussi appelés librairies) PHP autonomes
+            qui peuvent être utilisés dans des projets web privé ou open source. Mais c’est également un puissant Framework
+            PHP développé par une société française : SensioLabs. Il permet de réaliser des sites internet dynamiques de
+            manière rapide, structurée, et avec un développement clair. Les développeurs peuvent travailler sur ce Framework
+            très facilement, seuls ou en équipe, grâce à la facilité de prise en main.
+        </p>
+
+        <hr>
+
+        <h3> Comment se prépare-t-on un environnement symfony sain ?</h3>
+
+        <p class="paragraphe"> Pour préparer un environnement de développement symfony, il faut passer par plusieurs étapes,
+            la première est d'établir la liste des outils nécessaires à celle-ci. On peut alors dresser une liste de ceux-ci qui sont aux
+            nombres de 5. Les voici ci-dessous.</p>
+
+        <hr id="anchorphp">
+
+        <h2> 1. Etape 1: Installer PHP </h2>
+
+        <p class="paragraphe" > La première étape de la mise en place de cet environnement est d'installer sur son poste de travail la dernière version de PHP.
+            Ici, nous cherchons la dernière version de PHP, actuellement, je récupère la version de PHP 8.2.5.
+            Il est possible de la télécharger directement sur le site de PHP, mais travaillant sous Linux, j'utilise le terminal Ubuntu avec cette formulation:
+        <br>
+        <span class="terminal"> Sudo apt-get install PHP</span>
+        <br>
+        Ce qui donne ce résultat: </p>
+        <div>
+            <img class="illustration" src="{{ asset('build/images/terminal.png') }}" alt="">
+        </div>
+        <p>Une fois l'installation terminée, on peut passer à l'étape suivante: <span>La mise en place du Composer</span>
+        </p>
+
+        <hr id="anchorcomp">
+
+        <H2>Etape 2 : l'installation du composer</H2>
+
+        <p >Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer
+            et d'installer les bibliothèques dont le projet principal a besoin. Le développement a débuté en avril 2011
+            et a donné lieu à une première version sortie le 1er mars 2012. De la même manière que pour PHP, nous allons pouvoir lancer l'installation via la console d'Ubuntu <br>
+
+        <span class="terminal">cd ~ curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php</span> <br>
+
+         le composer est dorénavant installé et nous pouvons le lancer ainsi qu'avoir les principales commandes en tapant Composer dans la commande</p>
+
+        <img class="illustrationspe" src="{{ asset('build/images/composer.png') }}" alt="composer dans le terminal">
+
+
+        <hr id="anchorcli">
+
+
+        <h2> Installer le CLI symfony</h2>
+
+        <p> Après ces deux premières étapes, on installe les derniers outils nécessaires au fonctionnement de symfony,
+            on commence par: <br>
+
+        <span class="terminal">apt install -y curl</span><br>
+        <span class="terminal">curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash</span><br>
+        <span class="terminal">apt install -y symfony-cli </span>
+
+        <p>Une fois ces étapes terminée, le fonctionnement de symfony peut être vérifié par une dernière ligne à insérer dans le terminal: <br>
+        <span class="terminal"> symfony check:requirements</span> <br>
+        Si les étapes sont suivis, le résultat doit être le suivant:</p>
+
+        <img src="{{ asset('build/images/checkrequirements.png') }}" alt="requirementcheck" id="illustrationspe">
+
+
+        <hr id="anchordb">
+
+        <h2>Installation du Système de Gestion de base de données.</h2>
+
+        <p id="lastid">En général, on utilise pour ce qui est des bases de données mySQL ou MariaDB (le premier fait partie de la
+            suite Oracle le deuxième est basé sur mySQL mais il s'agit d'une version opensource.)
+            Ici, nous allons partir sur une installation de mySQL. Une fois n'est pas coutume sur Linux, nous allons ouvrir notre terminal
+            afin d'y écrire la suite de commande suivante:
+            <br>
+            <span class="terminal">
+            sudo apt install mysql-server
+        </span>
+            <br>
+
+            Le serveur mySQL étant installé, d'autres lignes de commande permettent de gérer notre serveur mySQL. Tel que: <br>
+            <span class="terminal">sudo systemctl start mysql</span> S'utilise pour démarrer le serveur. <br>
+            <span class="terminal">sudo systemctl restart mysql</span> Sert à redémarrer notre serveur. <br>
+            <span class="terminal">sudo systemctl reload mysql</span> Recharge les configurations si changement. <br>
+            <span class="terminal">sudo systemctl force-reload mysql</span> Forcer mySQL à recharger ses fichiers de configurations. <br>
+            <span class="terminal">mysql --version</span> Sert à reconnaitre la version de mySQL. <br>
+
+            Il reste alors encore beaucoup de commande pouvant être utilisé avec mySQL. Il est à noter que mySQL fonctionne sous la license
+            ORACLE, mais il existe également différente alternative OpenSource à ce système tel que MariaDB, postgreySQL et bien d'autres.
+        </p>
+    </main>
 {% endblock %}

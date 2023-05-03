@@ -7,10 +7,16 @@ body {
 .navbar {
     display: flex;
     width: 100%;
-    height: 10vh;
+    height: 90px;
     justify-content: space-around;
     align-items: center;
-    background: #6d6d6d;
+    background: #444444;
+    box-shadow: 0px 3px 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
 }
 
 
@@ -32,6 +38,7 @@ h2 {
     color: #eb6f6f;
     padding: 5vh ;
     margin: 0;
+    text-align: center;
 }
 
 .navitem {
@@ -44,20 +51,24 @@ h2 {
 
 a {
     text-decoration: none;
-    color: #000000;
+    color: #d3cccc;
 }
 
 .sidebar {
     height: 100%;
-    width: 15%;
+    width: 17%;
     position: fixed;
-    background-color: #0a6b8c;
+    background-color: #0c3747;
+    z-index: 1;
+    padding-top: 130px;
 }
 
 .sidebar li {
     font-size: 1.1em;
     display: block;
     padding: 0.5em;
+    color: #e0e0e0;
+
 }
 
 .centre {
@@ -65,9 +76,22 @@ a {
 }
 
 main {
-    height: calc(100vh - 10vh);
+    height: 100vh;
     background-color: antiquewhite;
+    padding-top: 130px;
 }
+
+
+#article {
+    padding-left: 35vh;
+    height: 100%;
+}
+
+hr {
+    margin: 135px 0 135px 120px;
+    width: 75%;
+}
+
 .containercol {
     display: flex;
     justify-content: center;
@@ -79,12 +103,28 @@ main {
     width: 25%;
 }
 
+h3 {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 4em;
+    color: #B0413E;
+}
+
 p {
     font-family: FreeSerif, serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding-left: 2rem;
     padding-right: 2rem;
     line-height: 3;
+}
+
+#lastid {
+    font-family: FreeSerif, serif;
+    font-size: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    line-height: 3;
+    margin: 0;
 }
 
 .box-col {
@@ -96,6 +136,28 @@ p {
     text-align: justify;
 }
 
+#list-nav {
+    font-size: 0.90rem;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+#nav-title {
+    font-family: FreeSerif, serif;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+}
+
+.terminal {
+    background: #000;
+    color: white;
+    padding: 5px
+}
+
+.illustration {
+    margin-left:250px;
+    max-width: 500px;
+    max-height: 500px;
+}
 
 
 
@@ -121,14 +183,11 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background: #111;
-    height: 10vh;
+    height: 5vh;
     width: 100vw;
     padding-top: 40px;
+    padding-bottom: 40px;
     color: #fff;
 }
 
