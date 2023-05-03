@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+        {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
     <body>
+    <header id="top">
+        <!-- Définition de la navbar avec système d'ancre -->
+        <div class="navbar">
+            <div>
+                <a href="/"><img id="logo" src="./images/symfony_logo_vertical.png" alt="logo du framework symfony"></a>
+            </div>
+            <div>
+                <h1 class="title1">Symfony Manual</h1>
+            </div>
+            <div>
+                <ol class="navitem">
+                    <li><a href="#config"> Configuration Environnement</a></li>
+                    <li><a href="#partie2"> Creation du premier projet</a> </li>
+                    <li><a href="#structure"> Structure d'un projet symfony</a></li>
+                    <li><a href="#anchordb">  SGBD</a></li>
+                    <li><a href="#anchorbiblio"> Bibliographies</a></li>
+                </ol>
+            </div>
+        </div>
+    </header>
         {% block body %}{% endblock %}
+    <footer>
+        <div class=”footer-content”>
+            <h3>ID 10 T Developer </h3>
+            <p>Foolish Developer —  source code.</p>
+            <hr>
+        </div>
+    </footer>
+
+        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>
