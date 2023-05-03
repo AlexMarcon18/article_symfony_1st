@@ -11,35 +11,12 @@
 
     </head>
     <body>
-    <header id="top">
-        <!-- Définition de la navbar avec système d'ancre -->
-        <div class="navbar">
-            <div>
-                <a href="/"><img id="logo" src="./images/symfony_logo_vertical.png" alt="logo du framework symfony"></a>
-            </div>
-            <div>
-                <h1 class="title1">Symfony Manual</h1>
-            </div>
-            <div>
-                <ol class="navitem">
-                    <li><a href="#config"> Configuration Environnement</a></li>
-                    <li><a href="#partie2"> Creation du premier projet</a> </li>
-                    <li><a href="#structure"> Structure d'un projet symfony</a></li>
-                    <li><a href="#anchordb">  SGBD</a></li>
-                    <li><a href="#anchorbiblio"> Bibliographies</a></li>
-                </ol>
-            </div>
-        </div>
 
-    </header>
-        {% block body %}{% endblock %}
-    <footer>
-        <div class=”footer-content”>
-            <h3>ID 10 T Developer </h3>
-            <p>Foolish Developer —  source code.</p>
-            <hr>
-        </div>
-    </footer>
+    {% embed "_part/header.html.twig" %}{% endembed %}
+
+    {% block body %}{% endblock %}
+
+    {% embed "_part/footer.html.twig" %}{% endembed %}
 
         {{ encore_entry_script_tags('app') }}
         {% block javascripts %}

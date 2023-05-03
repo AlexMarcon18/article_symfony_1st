@@ -20,9 +20,18 @@ body {
     padding: 0.5em;
 }
 
-.title1 {
-    font-size: 2.5rem;
-    color: #000000;
+h1 {
+    font-family: FreeSerif;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+h2 {
+    font-family: FreeSerif;
+    font-size: 3rem;
+    color: #eb6f6f;
+    padding: 5vh ;
+    margin: 0;
 }
 
 .navitem {
@@ -36,6 +45,55 @@ body {
 a {
     text-decoration: none;
     color: #000000;
+}
+
+.sidebar {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    background-color: #0a6b8c;
+}
+
+.sidebar li {
+    font-size: 1.1em;
+    display: block;
+    padding: 0.5em;
+}
+
+.centre {
+    text-align: center;
+}
+
+main {
+    height: calc(100vh - 10vh);
+    background-color: antiquewhite;
+}
+.containercol {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#symfo {
+    height: 25%;
+    width: 25%;
+}
+
+p {
+    font-family: FreeSerif;
+    font-size: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    line-height: 3;
+}
+
+.box-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    text-align: justify;
 }
 
 
@@ -68,7 +126,7 @@ footer{
     left: 0;
     right: 0;
     background: #111;
-    height: auto;
+    height: 10vh;
     width: 100vw;
     padding-top: 40px;
     color: #fff;
