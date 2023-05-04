@@ -13,36 +13,38 @@
 
     <main id="article">
 
+        <div class="container">
+            <h2>Partie 2: Création de notre premier projet</h2>
 
-        <h2>Partie 2: Création de notre premier projet</h2>
+            <p>
+                Après avoir installé ainsi que configurer notre environnement symfony, nous allons pouvoir créer notre premier projet. une fois n'est pas coutume, nous allons pouvoir
+                repartir vers le chemin du terminal afin de découvrir les fonctionnalités de symfony !
+            </p>
 
-        <p>
-            Après avoir installé ainsi que configurer notre environnement symfony, nous allons pouvoir créer notre premier projet. une fois n'est pas coutume, nous allons pouvoir
-            repartir vers le chemin du terminal afin de découvrir les fonctionnalités de symfony !
-        </p>
+            <hr id="dossier">
 
-        <hr id="dossier">
+            <h2>Création du dossier</h2>
 
-        <h2>Création du dossier</h2>
+            <p id="lasted">La première étape du projet est de créer un nouveau projet, on voit alors sur la doc symfony qu'il est possible d'automatiser la création de celui-ci comprenant les élements
+                de base nécessaire au bon fonctionnement de celui-ci. On retrouve ainsi ces commandes <br>
+                <span class="terminal"> symfony new my_project_directory --version="6.2.*" --webapp nom_du_projet </span> <br>
+                Le --webapp de cette ligne signifie que l'on souhaite créer une application Web traditionnelle, pour créer un microservice, une application console ou une APi, on reprendra cette même syntaxe
+                mais en omettant ce --Webapp <br>
+                Voici un exemple de la création d'un projet symfony: <br>
+                <img src="{{ asset('build/images/creation.png') }}" class="" alt="création dossier"> <br>
 
-        <p id="lasted">La première étape du projet est de créer un nouveau projet, on voit alors sur la doc symfony qu'il est possible d'automatiser la création de celui-ci comprenant les élements
-            de base nécessaire au bon fonctionnement de celui-ci. On retrouve ainsi ces commandes <br>
-            <span class="terminal"> symfony new my_project_directory --version="6.2.*" --webapp nom_du_projet </span> <br>
-            Le --webapp de cette ligne signifie que l'on souhaite créer une application Web traditionnelle, pour créer un microservice, une application console ou une APi, on reprendra cette même syntaxe
-            mais en omettant ce --Webapp <br>
-            Voici un exemple de la création d'un projet symfony: <br>
-            <img src="{{ asset('build/images/creation.png') }}" alt="création dossier"> <br>
+                On crée tout d'abord notre dossier, une fois le chargement terminé, on obtient ceci <br>
 
-            On crée tout d'abord notre dossier, une fois le chargement terminé, on obtient ceci <br>
+                <img src="{{ asset('build/images/creationcomplete.png')}}" class="" alt="fin création dossier"> <br>
 
-            <img src="{{ asset('build/images/creationcomplete.png')}}" alt="fin création dossier"> <br>
+                Le dossier est maintenant bien finalisé, on va pouvoir aller vérifier le résultat dans le repertoire ou l'on à crée notre dossier. <br>
 
-            Le dossier est maintenant bien finalisé, on va pouvoir aller vérifier le résultat dans le repertoire ou l'on à crée notre dossier. <br>
+                <img src="{{ asset('build/images/structure.png') }}"  class="illustration" alt="dossier symfony"> <br>
 
-            <img src="{{ asset('build/images/structure.png') }}"   alt="dossier symfony"> <br>
+                Dorénavant, notre projet à été crée et est utilisable à partir de notre IDE. Nous allons pouvoir aller explorer la structure de celui-ci !
+            </p>
+        </div>
 
-            Dorénavant, notre projet à été crée et est utilisable à partir de notre IDE. Nous allons pouvoir aller explorer la structure de celui-ci !
-        </p>
     </main>
 
 {% endblock %}

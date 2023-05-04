@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StructureController!{% endblock %}
+{% block title %}On rentre dans le vif{% endblock %}
 
 {% block body %}
     <div class="sidebar">
@@ -23,7 +23,7 @@
     </div>
 
     <main id="article">
-
+        <div class="container">
             <h2 id="structure">Structure de notre dossier symfony</h2>
 
             <p>Avant de débuter, il faut préciser que les différents dossiers qui composent notre projet symfony sont ceux énumérés dans la liste de gauche.
@@ -54,7 +54,7 @@
                 Les fichiers contenus dans ce dossier sont par défault en .YAML ( Yet another markup language. language de programmation parfaitement lisible et compréhensible.
                 A savoir qu'il est totalement possible de les ajouter au format .PHP ou en .XML (Extensible Markup Language). <br>
                 Voici les fichier que l'on peut y retrouver: <br>
-                <img src="{{ asset('build/images/packages_route.png') }}" alt="listepaquet/route"> <br>
+                <img src="{{ asset('build/images/packages_route.png') }}" class="illustrationspe" alt="listepaquet/route"> <br>
             </p>
 
             <hr id="migration">
@@ -122,7 +122,7 @@
             <p> { % ... %} : commande, comme une affectation, une condition, une boucle ou un bloc HTML.</p>
             <p> { # ... #} : commentaires.</p>
 
-        <img src="{{ asset('build/images/twigy.png') }}" alt="">
+        <img src="{{ asset('build/images/twigy.png') }}" class="illustrationspe" alt="">
         <p>On peut voir ci-dessus un exemple de la syntaxe de Twig, un moteur de template basé sur PHP</p>
 
         <hr id="test">
@@ -176,6 +176,6 @@
 
         <br>
 
-
+        </div>
     </main>
 {% endblock %}
