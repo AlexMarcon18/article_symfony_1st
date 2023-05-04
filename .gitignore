@@ -6,6 +6,8 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
+/bin/
+
 /vendor/
 /.idea/
 ###< symfony/framework-bundle ###
@@ -25,4 +27,5 @@
 /public/build/
 npm-debug.log
 yarn-error.log
+yarn.lock
 ###< symfony/webpack-encore-bundle ###
