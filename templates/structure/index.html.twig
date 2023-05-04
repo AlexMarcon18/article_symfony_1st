@@ -1,0 +1,178 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StructureController!{% endblock %}
+
+{% block body %}
+    <div class="sidebar">
+        <p id="nav-title">Nos étapes</p>
+
+        <ul class="dossier_symfo">
+            <li><a href="#bin" >Le dossier bin  </a></li>
+            <li><a href="#configdossier" >Le dossier config </a></li>
+            <li><a href="#migration" >Le dossier migrations </a></li>
+            <li><a href="#public" >Le dossier public </a></li>
+            <li><a href="#source" >Le dossier src </a></li>
+            <li><a href="#dossier" >Le dossier template </a></li>
+            <li><a href="#test" >Le dossier tests </a></li>
+            <li><a href="#translation" >Le dossier translations </a></li>
+            <li><a href="#var" >Le dossier var </a></li>
+            <li><a href="#vendor" >Le dossier vendor </a></li>
+            <li><a href="#assets" >Le dossier des assets </a></li>
+        </ul>
+
+    </div>
+
+    <main id="article">
+
+            <h2 id="structure">Structure de notre dossier symfony</h2>
+
+            <p>Avant de débuter, il faut préciser que les différents dossiers qui composent notre projet symfony sont ceux énumérés dans la liste de gauche.
+            Il est important de comprendre cette structure car elle nous aiguille sur le fonctionnement du framework, sa logique.</p>
+
+            <hr id="bin">
+
+            <h2>Le dossier bin</h2>
+
+            <p>Ce premier dossier de la structure symfony contient la console ainsi que les fichiers de commande de celles-ci !
+                on y retrouve par exemple les commandes servant à vider le cache de symfony ou encore une commande permettant de mettre à jour la base de données.
+
+                On peut ouvrir le terminal du dossier symfony et y taper: <br>
+                <span class="terminal"> php bin/console </span> <br>
+                On peut alors y observer toutes les commandes symfony disponible: <br>
+                <img src="{{ asset('build/images/consolebin.png') }}" alt="console symfony"> <br>
+                Il est à noter que cette photo ne contient pas toutes les commandes disponible.
+            </p>
+
+            <hr id="configdossier">
+
+            <h2>Le dossier config</h2>
+
+            <p>Le deuxième dossier que l'on remarque est le dossier config. Dans celui-ci on remarque bon nombre de sous dossiers.
+                Ceux-ci contiennent en fait la configuration des paquets, services et routes de notre projet. Elle permet la mise en place de système de sécurité, de connexion à la base de données également.
+                Ces derniers sont des paquets préfabriqué qu'il est possible d'insérer dans son projet, mais il est également totalement
+                possible de développer ses propres fonctionnalités annexes afin de les ajouter à son projet.
+                Les fichiers contenus dans ce dossier sont par défault en .YAML ( Yet another markup language. language de programmation parfaitement lisible et compréhensible.
+                A savoir qu'il est totalement possible de les ajouter au format .PHP ou en .XML (Extensible Markup Language). <br>
+                Voici les fichier que l'on peut y retrouver: <br>
+                <img src="{{ asset('build/images/packages_route.png') }}" alt="listepaquet/route"> <br>
+            </p>
+
+            <hr id="migration">
+
+            <h2>Le dossier migrations</h2>
+
+            <p>Le dossier migration dans un projet symfony correspond vulgairement à un historique, pas n'importe quel historique d'ailleurs, celui des
+                modifications apportées aux bases de données que l'on va utiliser, créer, modifier, supprimer etc... <br>
+                A chaque modification, un fichier de migration sera créer contenant les modifications effectuées à un instant T.
+                Lors de la reprise du projet par un autre développeur ou à la mise en place d'un nouveau poste de travail par exemple,
+                symfony va récupérer dans l'ordre ces fichiers afin de répliquer le plus fidèlement possible la base de données du projet. <br>
+                Pour créer une migration, on utilise le terminal avec cette ligne de commande: <br>
+                <span class="terminal"> php bin/console make:migration</span></p>
+
+            <p>Une migration sera alors créée dans le dossier (au format VersionDateTime.php) et elle pourra contenir deux méthodes différentes:<br>
+                -La méthode up(): qui s'éxecutera lorsque la migration est lancée<br>
+                -La méthode down(): qui s'éxecutera lors de l'annulation de cette migration.</p>
+
+            <p>Enfin, il faudra utiliser une commande pour lancer ces migrations pour qu'elle soit effective, pour ceci on utilise la commande:<br>
+            <span class="terminal"> php bin/console doctrine:migrations:migrate </span> </p>
+
+            <hr id="public">
+
+            <h2>Le dossier public</h2>
+
+            <p>Le dossier public sert de porte d'entrée à notre application. Les requêtes effectuées au serveur vont transiter obligatoirement par ce dossier et plus précisément même par notre index.php
+                Il sera accessible par tous comme son nom l'indique et est généralement utilisé pour mettre à disposition des fichiers de ressources, étant un repertoire transitoire, il est nécessaire de placer ces
+                fichiers de ressources dans le dossier assets qui sera expliqué plus bas. Ces fichiers seront alors récupérer pour être placé provisoirement dans le dossier public qui dans certains cas de figures peut être
+                amené à être effacé. Il est donc important de ne pas se servir de ce dossier pour y stocker nos fichiers de ressources. On ne modifiera pratiquement jamais le contenu de ce fichier.</p>
+
+            <hr id="source">
+
+            <h2> Le dossier source </h2>
+
+        <p>Nous sommes ici dans le cœur du projet, on retrouve ici notre logique applicative. On va y retrouver plusieurs dossiers nécessaires au fonctionnement de l'application. Il
+            y a trois principaux dossiers qui sont obligatoires pour le bon fonctionnement d'une application qui sont: </p>
+
+                <H3>Les controllers</H3>
+                    <p>Les controllers sont des fonctionnalités de symfony qui va permettre de gérer automatiquement les redirections vers les Manager / Service / Repertoire <br>
+                        C'est une fonction PHP qui va examiner nos Request pour renvoyer une classe en réponse. Un controller prend comme fin un endpoint (équivalent du / final d'une URL).
+                        Qui pourra alors rendre plusieurs méthodes</p>
+
+                <h3>Les entity</h3>
+                    <p>Les entity sont la structure de notre base de données exprimé au travers de classes et de leurs paramètres. Une entity correspond à une table en base de données. Nous avons d'ailleurs vu un peu plus haut
+                        la méthode de migration qui permettra alors de mettre à jour notre base de données chaque fois qu'entity sera modifié. Pour ce faire, nous pouvons utiliser la ligne de commande: <br>
+                        <span class="terminal">php bin/console doctrine:migrations</span>
+                    </p>
+
+                <h3>Les repository</h3>
+                    <p> Un Repository est toujours rattaché à une Entity, il nous permet de créer nos fonctions qui iront requêter la table de notre Entity (ainsi que les tables liées).
+                        Symfony utilise l’ORM Doctrine qui permet de créer nos requêtes SQL à travers les queryBuilder (très utile si l’on déteste faire du SQL) <br>
+                        <span class="terminal">php bin/console doctrine:migrations</span>
+                    </p>
+
+        <hr id="dossier">
+
+        <h2>Le dossier template</h2>
+
+        <p>Symfony utilise depuis ses débuts le moteur de templates Twig.
+
+            Les fichiers de template Twig ont comme format monfichier.html.twig et viennent rajouter quelques fonctionnalités au HTML classique :</p>
+
+
+            <p> { { ... } } : appel à une variable ou une fonction PHP, ou un template Twig parent.</p>
+            <p> { % ... %} : commande, comme une affectation, une condition, une boucle ou un bloc HTML.</p>
+            <p> { # ... #} : commentaires.</p>
+
+        <img src="{{ asset('build/images/twigy.png') }}" alt="">
+        <p>On peut voir ci-dessus un exemple de la syntaxe de Twig, un moteur de template basé sur PHP</p>
+
+        <hr id="test">
+
+        <h2>Les dossiers Tests</h2>
+
+        <p>Les tests unitaires PHPUnit seront définis ici pour tester notre application. <br>
+
+            La commande pour lancer nos tests :
+
+        <span class="terminal">php bin/phpunit</span> </p>
+
+        <p id="lasted">Il faut néanmoins s’assurer que le package phpunit soit installé en utilisant la commande suivante :
+
+        <span class="terminal">composer require --dev symfony/phpunit-bridge </span> </p>
+
+        <hr id="translation">
+
+        <h2>Les dossiers Translations</h2>
+
+        <p>L’internationalisation des applications est très importante aujourd’hui. Il est donc nécessaire de mettre en place un système de traduction dès le début du projet. Cela reste néanmoins facultatif si vous êtes certain de ne jamais avoir à traduire votre application (je ne m’y essayerais pas)
+
+            Pour cela, on installe le package translation et on suit la documentation Symfony : <br>
+        <span class="terminal"> composer require symfony/translation</span></p>
+
+        <hr id="var">
+
+        <h2>Le dossier var</h2>
+
+        <p> Le dossier Var sert à stocker le cache et nos fichiers de log. On peut par contre parametrer la mise en cache ainsi qui ce qu'on écrit dans les logs</p>
+
+        <hr id="vendor">
+
+        <h2>Le dossier vendor</h2>
+
+        <p>Lorsque l'on utilise symfony, il est pratique d'utiliser des librairies de fonctionnalités proposées par le framework.
+        Il est généré automatiquement par composer au moment de la création du projet. On y retrouve donc toutes les librairies installée à l'interieur,
+        composer créera par la même occasion un fichier nommé autoload.php qui fera référence à ces librairies. <br></p>
+        <p id="lasted">Attention tout de même, il ne faut en aucun cas modifier le contenu du dossier Vendor. il doit contenir les dernieres mises à jour des librairies qu'il utilise.
+        lors de l'installation d'une nouvelle librairie par composer celle-ci s'ajoutera automatiquement dans ce dossier.</p>
+
+        <hr id="assets">
+
+        <h2>Le dossier des Assets</h2>
+
+        <p>Le dossier assets de notre projet sera très important, en effet, celui va contenir tout le côté Front-End de notre application symfony.
+        On y trouve notamment nos feuilles de styles CSS, nos scripts JS également, et par une manipulation de plus on peut y déposer des images (pour cela, il faudra faire quelques modifications
+        au niveau de notre fichier webpack.config afin de lui permettre de compiler nos fichiers css, js et images pour les envoyer vers le dossier public où ils seront utilisable.</p>
+        <p></p>
+
+
+    </main>
+{% endblock %}

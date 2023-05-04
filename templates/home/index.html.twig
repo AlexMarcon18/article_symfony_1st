@@ -8,18 +8,20 @@
 
 {% block body %}
     <main>
-        <h2 class="centre">Welcome to my Symfony Manual</h2>
-
-        <div class="containercol">
+        <div class="gauche">
+            <h2 >Welcome to my Symfony Manual</h2>
 
             <img id="symfo" src="{{ asset('build/images/symfony_logo_vertical.png') }}" alt="">
+        </div>
 
-            <div class="box-col">
+
                 <p> Bienvenue à vous jeune développeur, en étant un moi-même j'ai pensé qu'il pouvait être agréable
                 de disposer d'un manuel expliquant comment s'initier à symfony. <br>
                 Ne l'ayant jamais utilisé avant de commencer mon stage de Remise à niveau développement WEB,
                 je sais que les tutoriels et autres sont en nombre conséquent. Comme il est difficile de s'approprier ce framework,
                 je me suis dit que cela ferait un bon projet d'entrainement pour moi-même ainsi qu'un bon moyen de garde une trace de mes avancées.</p>
+
+        <hr>
                 
                 <h3>C'est quoi symfony ?</h3>
 
@@ -36,8 +38,8 @@
                     <li>Guider le développeur et fiabiliser son travail</li>
                 </ul>
 
-            </div>
-        </div>
+        <br>
+
     </main>
 
 {% endblock %}
