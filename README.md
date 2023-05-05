@@ -32,10 +32,21 @@ Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt 
 <p>Si vous souhaitez lancer ce projet en local voici la marche à suivre :<p>
 
 <ul>
-  <li>Dans un premier temps, il vous faut composer: <br>
+  <li> - Dans un premier temps, il vous faut composer qui va gérer les dépendances de PHP: <br>
   <p> On utilisera alors la commande suivante: </p> <br>
-  <span> composer install </span> </li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <span> $ composer install </span> </li>
+  <li> - Ensuite avec Yarn, on va utiliser la même commande pour installer les différents paquets nécessaires au fonctionnement du projet: <br>
+  <span> $ yarn install </span> </li>
+  <li> - Une fois ces deux premières étapes éffectuées, on utilisera le Webpack-encore afin de compiler nos assets et les inclure au dossier public: <br>
+  <span> $ composer require symfony/webpack-encore-bundle</span> <br>
+  Une fois le webpack intégré à notre projet on pourra utiliser la commande: <br>
+    <span> $ yarn build </span> <br>
+    Cette commande compilera les assets pour les installer dans le public mais UNE fois seulement, si vous souhaitez modifier le projet en ayant accées à un rendu visuel en direct (en terme de CSS ou d'image), il faudra utiliser cette commande à la place: <br>
+    <span> $ yarn watch </span> <br>
+    Attention par contre, il ne faut pas fermer le terminal durant nos modifications de projet
+  </li>
+  <li> - Enfin, nous pourrons lancer la commande qui servira à lancer notre server local: <br>
+  <span> $ symfony start:server </span> <br>
+  On peut également utiliser une syntaxe plus courte:
+  <span> $ symfony serve </span></li>
 </ul>
