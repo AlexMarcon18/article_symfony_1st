@@ -3,6 +3,8 @@ premier projet symfony
 
 projet en php 8.2 <br>
 Tourne symfony 6.2.10 <br>
+Symfony CLI version 5.5.2 (c) <br>
+
 NodeJS v20.0.0 <br>
 composer 2.2.6 <br>
 yarn 1.22.19 <br>
