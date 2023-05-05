@@ -25,4 +25,17 @@ webpack-dev-server 4.13.3 <br>
 <br>
 
 <p> Salut moi c'est Alex, j'ai commencé le dev il y a deux mois et voici mon premier projet symfony. Il s'agit ni plus ni moins qu'un manuel sur l'utilisation de symfony.
-Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt content d'avoir fait ce petit pas dans le millieu. <br>
+Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt content d'avoir fait ce petit pas dans le millieu. <p>
+
+<br>
+
+<p>Si vous souhaitez lancer ce projet en local voici la marche à suivre :<p>
+
+<ul>
+  <li>Dans un premier temps, il vous faut composer: <br>
+  <p> On utilisera alors la commande suivante: </p> <br>
+  <span> composer install </span> </li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
