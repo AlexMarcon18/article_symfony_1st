@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="sidebar">
-        <p id="nav-title">Nos dossiers:</p>
+        <p id="nav-title"><a href="#top"> Nos dossiers:</a></p>
 
         <ul class="dossier_symfo">
             <li><a href="#bin" >Le dossier bin  </a></li>
@@ -39,7 +39,7 @@
                 On peut ouvrir le terminal du dossier symfony et y taper: <br>
                 <span class="terminal"> php bin/console </span> <br>
                 On peut alors y observer toutes les commandes symfony disponible: <br>
-                <img src="{{ asset('build/images/consolebin.png') }}" alt="console symfony"> <br>
+                <img src="{{ asset('build/images/consolebin.png') }}" class="illustration" alt="console symfony"> <br>
                 Il est à noter que cette photo ne contient pas toutes les commandes disponible.
             </p>
 
@@ -54,7 +54,7 @@
                 Les fichiers contenus dans ce dossier sont par défault en .YAML ( Yet another markup language. language de programmation parfaitement lisible et compréhensible.
                 A savoir qu'il est totalement possible de les ajouter au format .PHP ou en .XML (Extensible Markup Language). <br>
                 Voici les fichier que l'on peut y retrouver: <br>
-                <img src="{{ asset('build/images/packages_route.png') }}" class="illustrationspe" alt="listepaquet/route"> <br>
+                <img src="{{ asset('build/images/packages_route.png') }}" class="illustration" alt="listepaquet/route"> <br>
             </p>
 
             <hr id="migration">
@@ -122,7 +122,7 @@
             <p> { % ... %} : commande, comme une affectation, une condition, une boucle ou un bloc HTML.</p>
             <p> { # ... #} : commentaires.</p>
 
-        <img src="{{ asset('build/images/twigy.png') }}" class="illustrationspe" alt="">
+        <img src="{{ asset('build/images/twigy.png') }}" class="illustration" alt="">
         <p>On peut voir ci-dessus un exemple de la syntaxe de Twig, un moteur de template basé sur PHP</p>
 
         <hr id="test">

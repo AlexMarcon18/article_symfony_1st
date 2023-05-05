@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="sidebar">
-        <p id="nav-title">Nos étapes</p>
+        <p id="nav-title"><a href="#top"> Nos étapes </a></p>
         <ol>
             <li id="list-nav"><a href="#anchorphp">1. PHP 8</a></li>
             <li id="list-nav"><a href="#anchorcomp">2. Composer</a> </li>
@@ -36,7 +36,7 @@
             <br>
             Ce qui donne ce résultat: </p>
             <div>
-                <img class="illustration" src="{{ asset('build/images/terminal.png') }}" alt="">
+                <img class="illustration" src="{{ asset('build/images/terminal.png') }}" alt="terminal linux">
             </div>
             <p>Une fois l'installation terminée, on peut passer à l'étape suivante: <span>La mise en place du Composer</span>
             </p>
@@ -53,7 +53,7 @@
 
              le composer est dorénavant installé et nous pouvons le lancer ainsi qu'avoir les principales commandes en tapant Composer dans la commande</p>
 
-            <img class="illustrationspe" src="{{ asset('build/images/composer.png') }}" alt="composer dans le terminal">
+            <img class="illustration" src="{{ asset('build/images/composer.png') }}" alt="composer dans le terminal">
 
 
             <hr id="anchorcli">
@@ -72,7 +72,7 @@
             <span class="terminal"> symfony check:requirements</span> <br>
             Si les étapes sont suivis, le résultat doit être le suivant:</p>
 
-            <img src="{{ asset('build/images/checkrequirements.png') }}" alt="requirementcheck" class="illustrationspe">
+            <img src="{{ asset('build/images/checkrequirements.png') }}" alt="requirementcheck" class="illustration">
 
 
             <hr id="anchordb">
