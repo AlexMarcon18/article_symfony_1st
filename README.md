@@ -14,3 +14,15 @@ webpack: 5.81.0 <br>
 webpack-cli: 4.10.0 <br>
 webpack-dev-server 4.13.3 <br>
 
+<hr>
+
+<h1>Merci d'avoir cliqué</h1>
+
+<br>
+
+<h2>My First symfony article !</h2>
+
+<br>
+
+<p> Salut moi c'est Alex, j'ai commencé le dev il y a deux mois et voici mon premier projet symfony. Il s'agit ni plus ni moins qu'un manuel sur l'utilisation de symfony.
+Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt content d'avoir fait ce petit pas dans le millieu. <br>
