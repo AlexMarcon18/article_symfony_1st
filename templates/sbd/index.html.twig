@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue en enfer !{% endblock %}
+
+{% block body %}
+
+    <div class="sidebar" id="top">
+        <p id="nav-title"><a href="#top">Nos étapes</a></p>
+        <ol>
+            <li id="list-nav"><a href="#">1. Début projet</a></li>
+            <li id="list-nav"><a href="#dossier">2. Création projet </a> </li>
+        </ol>
+    </div>
+
+    <main id="article">
+
+        <div class="container">
+            <h2>Introduction à la base de données.</h2>
+
+                <h3>La méthode Merise</h3>
+
+            <p>MERISE est une méthode française née dans les années 70, développée initialement par Hubert
+                Tardieu. Elle fut ensuite mise en avant dans les années 80, à la demande du ministère de l'Industrie
+                qui souhaitait une méthode de conception des Systèmes d'Informations (SI).</p>
+
+            <p>MERISE est donc une méthode d'analyse et de conception des SI basée sur le principe de la
+                séparation des données et des traitements. Elle possède un certain nombre de modèles (ou
+                schémas) qui sont répartis sur trois niveaux :</p>
+
+            <ul>
+                <li>Le niveau Conceptuel ou MCD (Méthode Conceptuelle des Données).</li>
+                <li>Le niveau logique ou organisationnel ou MLD. (Méthode Logique des Données).</li>
+                <li>Le niveau physique ou MPD. (Modèle Physique des données).</li>
+            </ul>
+
+            <p>Nous allons donc commencer par la première étape de notre réflexion qui va être de concevoir notre MCD.</p>
+
+            <hr>
+
+            <h3 id="mcd">Modélisation d'une base de données au niveau conceptuel.</h3>
+
+            <p>Elaborer son MCD correspond à effectuer une représentation graphique et structurée des informations mémorisées par un SI.
+            Dans le MCD, on retrouve deux composantes principales : les <span>Entité</span> ainsi que les <span>Associations</span>.
+            On retrouve d'ailleurs l'appellation de schéma Entité/Association pour designer le MCD. </p>
+
+            <p>Pour créer notre MCD, nous allons devoir passer par quatres étapes:</p>
+
+            <ul class="list-article">
+                <li>Les règles de gestion.</li>
+                <li>Le dictionnaire de données</li>
+                <li>La recherche de dépendances fonctionnelles</li>
+                <li>Et enfin l'élaboration de notre MCD (entités, associations puis ajout des cardinalités)</li>
+            </ul>
+
+            <h4 class="sous-titre">Les règles de gestion.</h4>
+
+            <p>Nous sommes ici dans les prémices de notre conceptualisation. Pour créer nos futures tables, il va falloir
+            recueillir les besoins de nos futurs utilisateurs. A partir de ces derniers, nous devrions être en mesure d'établir nos
+            règles de gestion de données.</p>
+
+            <p>ON peut prendre pour exemple un développeur qui doit informatiser le SI d'un disquaire qu'il connait:</p>
+
+                <ul>
+                    <li class="list-article">Pour chaque disque/vinyle, on doit connaître son année de parution, son titre, son genre</li>
+                    <li class="list-article">Un album peut être réalisé par un ou plusieurs artistes dont on connait le nom, le prénom, la date de naissance et l'origine.</li>
+                    <li class="list-article">Chaque disque est identifiable par une référence et ne peut être produit que par une maison de disque.</li>
+                </ul>
+
+            <p>Sans s'en rendre compte, juste en énumérant ses besoins, le client nous donne alors naturellement notre base de travail.
+            Il est cependant possible que le client ne soit pas en mesure d'exprimer clairement ses besoins. C'est alors qu'en tant que professionnel, il faudra
+            creuser le sujet et l'interroger plus précisement car sa logique informatique n'est pas forcément très développée, notre devoir est donc de l'assister au mieux
+            possible pour que sa sollicitation soit bien traitée.</p>
+
+
+            <h4 class="sous-titre">Le dictionnaire de données.</h4>
+
+            <p>C'est une étape intermédiaire qui peut avoir son importance, surtout si vous êtes plusieurs à
+                travailler sur une même base de données, d'un volume important. <br>
+                Le dictionnaire des données est un document qui regroupe toutes les données que vous aurez à
+                conserver dans votre base (et qui figureront donc dans le MCD). Pour chaque donnée, il indique :</p>
+        </div>
+    </main>
+
+{% endblock %}
