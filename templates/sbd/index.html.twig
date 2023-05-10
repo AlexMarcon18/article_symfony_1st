@@ -109,9 +109,21 @@
 
 
 
-            <p></p>
+            <h4>Le modèle conceptuel de données</h4>
 
-            
+                <h5>Les entités </h5>
+
+            <p>Chaque entité est unique et est décrite par un ensemble de propriétés encore appelées attributs ou
+                caractéristiques. Une des propriétés de l'entité est l'identifiant. Cette propriété doit posséder des
+                occurrences uniques et doit être source des dépendances fonctionnelles avec toutes les autres
+                propriétés de l'entité. Bien souvent, on utilise une donnée de type entier qui s'incrémente pour
+                chaque occurrence, ou encore un code unique spécifique du contexte.</p>
+
+            <img src="{{ asset('build/images/entite.png') }}" class="illustration" alt="">
+
+            <p>On peut reprendre l'exemple du dessus avec notre disquaire et schématiser une entité disque par exemple:</p>
+
+            <img src="{{ asset('build/images/entitexemple.png') }}" class="illustration" alt="">
         </div>
     </main>
 
