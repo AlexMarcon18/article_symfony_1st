@@ -48,7 +48,6 @@
             <ul class="list-article">
                 <li>Les règles de gestion.</li>
                 <li>Le dictionnaire de données</li>
-                <li>La recherche de dépendances fonctionnelles</li>
                 <li>Et enfin l'élaboration de notre MCD (entités, associations puis ajout des cardinalités)</li>
             </ul>
 
@@ -78,6 +77,41 @@
                 travailler sur une même base de données, d'un volume important. <br>
                 Le dictionnaire des données est un document qui regroupe toutes les données que vous aurez à
                 conserver dans votre base (et qui figureront donc dans le MCD). Pour chaque donnée, il indique :</p>
+            
+                <ul class="list-article">
+                    <li>le code mnémonique : il s'agit d'un libellé désignant une donnée (par exemple «titre_l» pour
+                        le titre d'un livre) ;</li>
+                    <li>la désignation : il s'agit d'une mention décrivant ce à quoi la donnée correspond (par
+                        exemple «titre du livre») ;</li>
+                    <li>le type de donnée :</li>
+                    <li> A ou Alphabétique : lorsque la donnée est uniquement composée de caractères
+                        alphabétiques (de 'A' à 'Z' et de 'a' à 'z'),</li>
+                    <li> N ou Numérique : lorsque la donnée est composée uniquement de nombres (entiers ou
+                        réels),</li>
+                    <li> AN ou Alphanumérique : lorsque la donnée peut être composée à la fois de caractères
+                        alphabétiques et numériques,</li>
+                    <li> Date : lorsque la donnée est une date (au format AAAA-MM-JJ),</li>
+                    <li> Booléen : Vrai ou Faux ;</li>
+                    <li> la taille : elle s'exprime en nombre de caractères ou de chiffres. Dans le cas d'une date au
+                        format AAAA-JJ-MM, on compte également le nombre de caractères, soit 10 caractères. Pour
+                        ce qui est du type booléen, nul besoin de préciser la taille (ceci dépend de l'implémentation
+                        du SGBDR) ;</li>
+                    <li> et parfois des remarques ou observations complémentaires (par exemple si une donnée est
+                        strictement supérieure à 0, etc.).</li>
+                </ul>
+
+            <p>Voici un exemple de dictionnaire de données pour se le representer plus facilement</p>
+
+            <br>
+
+            <img src="{{ asset('build/images/Exemple-donnees.png') }}" class="illustration" alt="exemple tableau">
+
+
+
+
+            <p></p>
+
+            
         </div>
     </main>
 
