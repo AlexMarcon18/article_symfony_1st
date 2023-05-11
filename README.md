@@ -34,7 +34,9 @@ Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt 
 <ul>
   <li>  Dans un premier temps, il vous faut composer qui va gérer les dépendances de PHP: <br>
   <p> On utilisera alors la commande suivante: </p> <br>
-  <span> $ composer install </span> </li>
+  <span> $ composer install </span> <br>
+    si composer n'est pas installé sur votre PC, nous lancerons alors la commande suivante en premier <br>
+  <span> $ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer </span></li> <br>
   <li>  Ensuite avec Yarn, on va utiliser la même commande pour installer les différents paquets nécessaires au fonctionnement du projet: <br>
   <span> $ yarn install </span> </li>
   <li>  Une fois ces deux premières étapes éffectuées, on utilisera le Webpack-encore afin de compiler nos assets et les inclure au dossier public: <br>
