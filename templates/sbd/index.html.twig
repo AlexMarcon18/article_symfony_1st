@@ -109,7 +109,7 @@
 
 
 
-            <h4>Le modèle conceptuel de données</h4>
+            <h4 class="sous-titre">Le modèle conceptuel de données</h4>
 
                 <h5>Les entités </h5>
 
@@ -128,6 +128,158 @@
             <p>Ce qui nous donne notre premier exemple de ce type</p>
 
             <img src="{{ asset('build/images/bddentiteexemple.png') }}" class="illustration" alt="">
+
+            <br>
+
+                <h5>Les associations</h5>
+
+            <p>Les associations représente donc un lien entre plusieurs entités de notre base de données. Elle va représenter la dynamique du système, elle est caractérisée
+            par les cardinalités. L'association dans notre schéma sera représentée par un ovale dont le titre est un verbe d'état ou un verbe d'action.</p>
+
+            <img src="{{ asset('build/images/association.png') }}" class="illustration" alt="illustration association">
+
+            <br>
+
+                <h5>La cardinalité</h5>
+
+            <p>La cardinalité d’une patte reliant une association et une entité précise le nombre de fois minimal et maximal
+                d’interventions d’une occurrence de l'entité avec l'association. La cardinalité minimale doit être inférieure
+                ou égale à la cardinalité maximale. </p>
+
+            <p>On ne peut retrouver que 4 cardinalités dans nos MCD:</p>
+
+            <ul class="list-article">
+                <li>1-1: L'occurrence de l'entité participe une et une fois seulement à l'association</li>
+                <li>0-1: L'occurrence de l'entité peut exister sans pour autant participer à la relation mais ne participe jamais
+                plus d'une fois</li>
+                <li>1-n: L'occurrence de l'entité participe au moins une fois à l'association mais peut y participer sans limite (n fois)</li>
+                <li>0-n: L'occurrence peut ne pas participer à l'association mais il existe des cas de figure ou elle peut participer N fois</li>
+            </ul>
+
+            <img src="{{ asset('build/images/MCD.png') }}" alt="mcd avec cardinalités" class="illustration">
+
+            <p>Ici on peut observer sur notre exemple les cardinalités:</p>
+
+                <ul class="list-article">
+                    <li>En partant de l'article, on peut se dire qu'un article peut n'appartenir à aucune catégories jusqu'à N catégories</li>
+                    <li>Dans le sens inverse, nos catégories peuvent contenir de 0 à N article</li>
+                    <li>En repartant de l'article, l'article est rédigé par un et un seul auteur</li>
+                    <li>Par contre dans le sens inverse, un auteur peut avoir écrit de 1 à N article</li>
+                </ul>
+
+                <br>
+
+                <h5>Elaboration du MCD</h5>
+
+            <p>Avec toutes ces connaissances, il nous est donc possible d'élaborer le MCD complet à partir
+                des données présentes dans le dictionnaire des données, j'utiliserais ici un schéma à titre d'exemple mais qui ne correspond pas aux bases de données montrées
+                précédemment: </p>
+
+            <img src="{{ asset('build/images/merise23.gif') }}" class="illustration" alt="exemple MCD">
+
+            <hr>
+
+                <h3>Le passage au MLD</h3>
+
+
+            <p>Le modèle logique de données est une représentation textuelle du MPD. C'est une représentation en ligne du
+                schéma qui représente la structure de notre base de données. Il n'y a pas de travail poussé à réaliser mais surtout d'appliquer certaines
+                règles. </p>
+
+            <img src="{{ asset('build/images/MLD.png') }}" alt="mld-textuel" class="illustration">
+
+            <p>On distingue plusieurs règles quand on passe d'un MCD à un MLD.</p>
+
+                <h4 class="sous-titre">Règle numéro 1:</h4>
+
+                <h5>Une entité du MCD devient une relation, c'est-à-dire une table.</h5>
+
+            <p>Dans un SGBD (Système de Gestion de base de données) de type relationnel, une table est une structure tabulaire dont chaque ligne
+                correspond aux données d'un objet enregistré (d'où le terme enregistrement) et où chaque colonne correspond à une propriété de cet objet.
+                Une table contiendra donc un ensemble d’enregistrements.
+                Une ligne correspond à un enregistrement.
+                Une colonne correspond à un champ.
+                La valeur prise par un champ pour un enregistrement donné est située à l’intersection ligne-colonne correspondant à enregistrement-champ.
+                Il n’y a pas de limite théorique au nombre d’enregistrements que peut contenir une table. Par contre, la limite est liée à l’espace de stockage</p>
+
+                <h5> Son identifiant devient la clé primaire de la relation.</h5>
+
+            <p>La clé primaire permet d’identifier de façon unique un enregistrement dans la table.
+                Les valeurs de la clé primaire sont donc uniques.
+                Les valeurs de la clé primaire sont obligatoirement non nulles.
+                Dans la plupart des SGBDR (Système de Gestion de Base de Données Relationnelle), le fait de définir une clé primaire donne lieu
+                automatiquement à la création d’un index.
+                Un index est un fichier interne au SGBD. L’utilisateur standard n’a pas besoin d’y accéder. L’index a pour but d’accélérer les traitements de
+                recherche, de tri, de filtre et notamment sur les tables avec de nombreux enregistrements. La contrepartie est que l’index nécessite de l’espace
+                mémoire et surtout, les temps d’insertion, de suppression d’enregistrements sont plus importants car il faut mettre à jour à la fois la table et
+                l’index</p>
+
+                <h5>Les autres propriétés deviennent les attributs de la relation.</h5>
+
+            <p>Ici, je préfère illustrer mon propos par un exemple concret</p>
+
+            <img src="{{ asset('build/images/attributrelation.png') }}" class="illustration" alt="attribut relation">
+
+            <p>Ici, on retrouve notre table client, numClient est la clé primaire de cette entité, les autres attributs de cette table deviennent alors attribut
+            de cette relation.</p>
+
+
+                <h4 class="sous-titre">Règle numéro 2:</h4>
+
+            <p>Une association de type 1:N (c'est-à-dire qui a les cardinalités maximales positionnées à « 1 » d’une côté de l’association et à « n » de l’autre
+                côté) se traduit par la création d’une clé étrangère dans la relation correspondante à l’entité côté « 1 ».
+                Cette clé étrangère référence la clé primaire de la relation correspondant à l’autre entité.</p>
+
+            <img src="{{ asset('build/images/mcdversmld.png') }}" class="illustration" alt="table de MCD">
+
+            <img src="{{ asset('build/images/MlDexemple.png') }}" class="illustration" alt="exemple du MLD">
+
+            <img src="{{ asset('build/images/tableexemple.png') }}" class="illustration" alt="les tables">
+
+            <p>Même si les tables COMMANDE et CLIENT sont 2 tables distinctes, il est possible de retrouver toutes les informations des 2 tables de façon
+                cohérente grâce à la clé étrangère.</p>
+
+            <p>De ce fait on remarque que même si certaines informations sont dans deux tables distinctes, on peut les retrouver grâce à la clé étrangère.</p>
+
+            <p>On peut alors savoir quel est le nom du client qui à passé la commande n°11, qui sont les clients qui ont commandé le 01/02/2014, combien de commande le client numéro 3 à passé depuis sa première
+            commande...</p>
+
+
+                <h4 class="sous-titre">Et enfin la règle numéro 3</h4>
+
+            <p>La troisième règle reprend le principe de la deuxième, mais avec deux entités qui sont reliées par la même
+                cardinalité 1;N, Cela résulte en la création d'une table dont la clé primaire est composée des clés
+                étrangères référençant les relations correspondant aux entités liées par l'association </p>
+
+            <img src="{{ asset('build/images/doublecardinalités.png') }}" class="illustration" alt="double-clé-étrangère">
+
+            <p>On peut observer ici que l'association concernée devient elle-même une table qui aura comme clé primaire
+                l'association des deux clés étrangères des tables qu'elle concerne, ici ce sera la clé étrangère de la table commande ainsi que la clé étranère de la table produit.
+                Ces deux clés primaires dans leurs tables respectives deviennent dans cette nouvelle table des clés étrangères qui une fois associé formeront la clé primaire de la
+                nouvelle table que leurs associations va créer.
+            </p>
+
+
+            <hr>
+
+
+                <h3>Le passage au MPD</h3>
+
+
+                <h4 class="sous-titre">Introduction</h4>
+
+            <p>Le MPD (Modèle physique des données) est la dernière étape de l’analyse. Le MPD n’est autre qu’une liste
+                de tables avec pour chacune d’elle les colonnes faisant partie de cette table. Il s’obtient par calcul à
+                partir du MCD. </p>
+
+
+                <h4 class="sous-titre">Formalisme MPD</h4>
+
+            <p>Chaque nom de table est suivi d’une liste de colonnes entre parenthèses. <br>
+
+                Les clés primaires sont soulignées <br>
+                les clés étrangères sont précédées par un dièse. </p>
+
 
 
 
