@@ -9,6 +9,7 @@
 /bin/
 /vendor/
 /.idea/
+.env/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
