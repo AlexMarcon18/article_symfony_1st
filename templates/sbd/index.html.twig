@@ -7,8 +7,10 @@
     <div class="sidebar" id="top">
         <p id="nav-title"><a href="#top">Nos étapes</a></p>
         <ol>
-            <li id="list-nav"><a href="#">1. Début projet</a></li>
-            <li id="list-nav"><a href="#dossier">2. Création projet </a> </li>
+            <li id="list-nav"><a href="#merise">1. La méthode Merise</a></li>
+            <li id="list-nav"><a href="#conceptuel">2. Méthode conceptuelle</a> </li>
+            <li id="list-nav"><a href="#MLD">3. Passage au MLD </a> </li>
+            <li id="list-nav"><a href="#MPD">4. Passage au MPD </a> </li>
         </ol>
     </div>
 
@@ -16,6 +18,9 @@
 
         <div class="container">
             <h2>Introduction à la base de données.</h2>
+
+
+            <hr  id="merise">
 
                 <h3>La méthode Merise</h3>
 
@@ -35,7 +40,7 @@
 
             <p>Nous allons donc commencer par la première étape de notre réflexion qui va être de concevoir notre MCD.</p>
 
-            <hr>
+            <hr id="conceptuel">
 
             <h3 id="mcd">Modélisation d'une base de données au niveau conceptuel.</h3>
 
@@ -177,7 +182,7 @@
 
             <img src="{{ asset('build/images/merise23.gif') }}" class="illustration" alt="exemple MCD">
 
-            <hr>
+            <hr id="MLD">
 
                 <h3>Le passage au MLD</h3>
 
@@ -260,7 +265,7 @@
             </p>
 
 
-            <hr>
+            <hr id="MPD">
 
 
                 <h3>Le passage au MPD</h3>
@@ -280,7 +285,15 @@
                 Les clés primaires sont soulignées <br>
                 les clés étrangères sont précédées par un dièse. </p>
 
+            <p>Dans un MPD, on crée les tables dont on met le nom dans l’en-tête, ensuite à l’intérieur de ces tables on
+                répertorie l’ensemble des champs qu’elles contiennent. Dans un second temps, il faut souligner les champs
+                qui sont des clés primaires et mettre un “#” devant les champs qui sont des clés étrangères. <br>
 
+                Pour les clés étrangères ce n’est pas tout, il faut montrer, à l’aide d’une flèche vers quel champ fait
+                référence la clé étrangère. La flèche commençant de la clé étrangère et l’extrémité de la flèche quant à
+                elle pointe vers le champ référence.</p>
+
+            <img src="{{ asset('build/images/MPDexemple.png') }}" class="illustration" alt="">
 
 
         </div>
