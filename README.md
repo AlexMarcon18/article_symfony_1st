@@ -31,6 +31,9 @@ webpack-dev-server 4.13.3 <br>
 Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt content d'avoir fait ce petit pas dans le millieu. <p>
 
 <br>
+<p>Tout d'abord on va cloner mon dépot git:</p>
+
+    git clone https://github.com/Benco109/benco_s_dev_blog_symfony.git
 
 <p>Si vous souhaitez lancer ce projet en local voici la marche à suivre :<p>
 
