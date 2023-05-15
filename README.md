@@ -34,33 +34,52 @@ Il n'est peut-être pas encore tout a fait au point mais je suis déjà plutôt 
 
 <p>Si vous souhaitez lancer ce projet en local voici la marche à suivre :<p>
 
+Avant Toute chose, il vous faudra renommer le fichier .env.example du repertoire en .env pour le bon fonctionnement du projet.
+
 <ul>
   <li>  Dans un premier temps, il vous faut composer qui va gérer les dépendances de PHP: <br>
-
-  <p> On utilisera alors la commande suivante: </p> <br>
-
-     $ composer install
-  si composer n'est pas installé sur votre PC, nous lancerons alors la commande suivante en premier <br>
+    Si composer n'est pas installé sur votre PC, nous lancerons alors la commande suivante en premier <br>
 
     $ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
-  <li>  Ensuite avec Yarn, on va utiliser la même commande pour installer les différents paquets nécessaires au fonctionnement du projet: <br>
+
+  <p> On utilisera alors la commande suivante: </p> 
+    
+     $ composer install
+
+<hr>  
+
+  <li>  Ensuite avec Yarn, on va utiliser la même commande pour installer les différents paquets nécessaires au fonctionnement du projet : (attention dans ce readme
+je montre deux cas de figure qui sont l'installation via yarn et l'installation via npm, veuillez n'utiliser qu'une de ces deux options.)<br>
 
     $ yarn install
 
-  de même si Yarn n'est pas installé sur votre PC nous utiliserons la commande suivante: 
-    
+Si Yarn n'est pas installé sur votre PC, nous utiliserons d'abord la commande suivante :
+
     $ sudo apt install yarn
 
-  <li>  Une fois ces deux premières étapes éffectuées, on utilisera le Webpack-encore afin de compiler nos assets et les inclure au dossier public: <br>
+ou
+
+Il est possible d'utiliser npm à la place de yarn:
+
+    sudo apt install npm
+
+Une fois installé sur votre machine, vous pouvez utiliser la commande suivante pour gérer les dépendances :
+
+    npm run install
+
+<hr>
+
+  <li>  Une fois ces deux premières étapes effectuées, on utilisera le Webpack-encore afin de compiler nos assets et les inclure au dossier public: <br>
 
     $ composer require symfony/webpack-encore-bundle
-  Une fois le webpack intégré à notre projet on pourra utiliser la commande: <br>
+
+  Une fois le webpack intégré à notre projet, on pourra utiliser la commande avec yarn ou avec npm (les lignes de commandes diffèrent un peu): <br>
 
     $ yarn build
-  Cette commande compilera les assets pour les installer dans le public mais UNE fois seulement, si vous souhaitez modifier le projet en ayant accées à un rendu visuel en direct (en terme de CSS ou d'image), il faudra utiliser cette commande à la place: <br>
+ou
 
-    $ yarn watch
-  Attention par contre, il ne faut pas fermer le terminal durant nos modifications de projet
+    $ npm run build
+
 
   </li>
   <li>  Enfin, nous pourrons lancer la commande qui servira à lancer notre server local: <br>
