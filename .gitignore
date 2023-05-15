@@ -9,6 +9,7 @@
 /bin/
 /vendor/
 /.idea/
+.env/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
@@ -16,10 +17,6 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
