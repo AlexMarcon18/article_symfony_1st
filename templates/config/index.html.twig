@@ -79,26 +79,176 @@
 
             <h2>Installation du Système de Gestion de base de données.</h2>
 
-            <p id="lasted">En général, on utilise pour ce qui est des bases de données mySQL ou MariaDB (le premier fait partie de la
-                suite Oracle le deuxième est basé sur mySQL mais il s'agit d'une version opensource.)
-                Ici, nous allons partir sur une installation de mySQL. Une fois n'est pas coutume sur Linux, nous allons ouvrir notre terminal
-                afin d'y écrire la suite de commande suivante:
-                <br>
-                <span class="terminal">
-                sudo apt install mysql-server
-            </span>
+            <hr>
+
+                <h3>Installation environnement LAMP</h3>
+
+            <p>Voici comment s'installer son environnement de développement local avec LAMP (linux, apache2, mysql, PHP:</p>
+            
+                <h5>Installation Apache2</h5>
+
+            <p>Premièrement, nous allons chercher comment installer et configurer apache2</p>
+
+            <p>Apache2 est un serveur HTTP, qui permet à un site Web de communiquer avec un navigateur en utilisant le protocole
+            HTTP(S) et ses extensions. C'est probablement le serveur HTTP le plus populaire</p>
+
+            <p> On utilise généralement Apache en conjonction avec d'autres logiciels, permettant d'interpréter du code et d'accéder à des bases de données.</p>
+
+
+            <p>Avant toute chose, nous allons réaliser la mise à jour de notre système Ubuntu avec ces deux commandes successives <br>
+
+            <span class="terminal">sudo apt update</span> et <br>
+
+            <span class="terminal">sudo apt upgrade</span> </p>
+
+
+            <p> On passe maintenant à l’installation du serveur Web Apache. Lancer la commande suivante pour procéder à l’installation d’Apache :
                 <br>
 
-                Le serveur mySQL étant installé, d'autres lignes de commande permettent de gérer notre serveur mySQL. Tel que: <br>
-                <span class="terminal">sudo systemctl start mysql</span> S'utilise pour démarrer le serveur. <br>
-                <span class="terminal">sudo systemctl restart mysql</span> Sert à redémarrer notre serveur. <br>
-                <span class="terminal">sudo systemctl reload mysql</span> Recharge les configurations si changement. <br>
-                <span class="terminal">sudo systemctl force-reload mysql</span> Forcer mySQL à recharger ses fichiers de configurations. <br>
-                <span class="terminal">mysql --version</span> Sert à reconnaitre la version de mySQL. <br>
+            <span class="terminal"> sudo apt install -y apache2 apache2-utils </span></p>
 
-                Il reste alors encore beaucoup de commande pouvant être utilisé avec mySQL. Il est à noter que mySQL fonctionne sous la license
-                ORACLE, mais il existe également différente alternative OpenSource à ce système tel que MariaDB, postgreySQL et bien d'autres.
+            <p>Une fois installé, Apache devrait être démarré automatiquement. Vérifiez son état avec la commande systemctl.
+                <br>
+            <span class="terminal">systemctl status apache2</span></p>
+
+            <img src="{{ asset('build/images/etatservapache.png') }}" class="illustration" alt="serveur apache2">
+
+
+            <p>Si votre serveur ne s'est pas lancé, utilisez la commande suivante: <br>
+            <span class="terminal">sudo systemctl start apache2</span></p>
+
+            <p>Utilisez la commande suivante pour démarrer Apache au démarrage système : <br>
+            <span class="terminal">sudo systemctl enable apache2</span></p>
+
+
+            <p>Une fois apache2 installé sur notre machine, nous avons un choix à faire ! il faudra se décider sur notre serveur de base de données, on aura le choix
+            entre MySQL server et son équivalence open source : MariaDB. <br>
+            Les deux systèmes de gestion de base de données ci-dessus partent de la même base. Le choix se fera donc à votre convenance.
+                <br>
+
+                <a href="https://www.tech2tech.fr/installation-de-lamp-sur-ubuntu-20-04/">Ici vous trouverez un tutoriel d'installation pour Apache2 et MariaDB</a></p>
+
+
+            <hr>
+
+                <h5>Installation et configuration MySQL server </h5>
+
+            <p>Dans un premier temps, on va mettre a jours notre système comme précédemment pour installer nos serveurs Apache:</p>
+
+            <p>Une fois ceci fait, on va pouvoir lancer notre ligne de commande pour installer MySQL - server <br>
+            <span class="terminal">sudo apt install mysql-server</span></p>
+
+            <p>On peut verifier notre version de MySQL avec cette ligne de commande: <br>
+            <span class="terminal">mysql --version</span></p>
+
+            <img src="{{ asset('build/images/mysqlversion.png') }}" class="illustration" alt="version de mysqls">
+
+            <p>Nous allons maintenant pouvoir lancer la dernière étape de notre installation: le script de sécurité mySQL.</p>
+
+            <p>Pour se faire nous lancerons la commande suivante: <br>
+            <span class="terminal">sudo mysql_secure_installation</span></p>
+
+            <p>Ce qui nous donne: <br>
+                <img src="{{ asset('build/images/mysqlsecure.png') }}" class="illustration" alt="script sécurité"></p>
+
+            <p>Choisissez votre difficulté de mot de passe via les réponses 1-2 et 3 <br>
+            Après ça, choisissez votre mot de passe.</p>
+
+            <p>Il est possible que vous ayez un message d'erreur de ce type:</p>
+
+            <p>Si vous obtenez une erreur :
+
+                SET PASSWORD n’a aucune signification pour l’utilisateur ‘root’@’localhost’ car la méthode d’authentification utilisée ne stocke pas les données d’authentification sur le serveur MySQL. Veuillez envisager d’utiliser ALTER USER à la place si vous souhaitez modifier les paramètres d’authentification.
             </p>
+
+            <p>Pour la contourner, on va d'abord se connecter à MySQL via: <br>
+            <span class="terminal">sudo mysql</span></p>
+
+            <p>Vous y trouverez ceci: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by '[email protected]'</p>
+
+            <p>ici nous allons changer le [email protected] par notre mot de passe.</p>
+
+            <p>Une fois cela fait nous pouvons sortir de l'instance par la simple commande: <br>
+            <span class="terminal">exit</span></p>
+
+            <p>On peut alors executer à nouveau le script de sécurité MySQL: <br>
+            Celui-ci nous demandera alors d'être configuré, voici les réponses de base que nous voulons lui donner. <br>
+            Bien sur vous pouvez changer ceux-ci à votre convenance mais voici les configurations que j'ai réalisées:</p>
+
+            <p>Enter the password for user root: type your set password and then press ENTER. <br>
+
+                Change the password for root? Press N, then ENTER. <br>
+
+                Remove anonymous users? Press Y, then ENTER. <br>
+
+                Disallow root login remotely? Press Y, then ENTER. <br>
+
+                Remove test database and access to it? Press Y, then ENTER. <br>
+
+                Reload privilege tables now? Press Y, then ENTER.</p>
+
+
+            <p>Une fois l’installation et la sécurisation de celui-ci terminées, nous pouvons nous connecter à notre serveur
+                MySQL avec un utilisateur root pour créer des tables de base de données ou des utilisateurs.</p>
+
+            <p><span class="terminal">sudo mysql -u root</span> <br>
+                Saisissez le mot de passe que vous lui avez attribué. </p>
+
+            <p>Enfin, nous allons pouvoir vérifier que notre service MySQL fonctionne grace à la commande suivante: <br>
+            <span class="terminal">sudo systemctl status mysql</span></p>
+
+            <img src="{{ asset('build/images/étatmysql.png') }}" class="illustration" alt="état mysql">
+
+
+            <hr>
+
+
+            <h5> Installation de PHPmyAdmin </h5>
+
+            <p>On va maintenant commencer la dernière étape de notre installation avec Phpmyadmin, une interface WEB afin
+                d'administrer à distance nos bases de données Mysql ou MariaDB</p>
+
+            <p>il permet d'administrer:</p>
+            
+                <ul>
+                    <li>Les bases de données.</li>
+                    <li>Les tables et leurs champs. (ajout, suppression, définition du type)</li>
+                    <li>Les index et les clés primaires/étrangères.</li>
+                    <li>Les utilisateurs de la base données et leurs permissions (rôles).</li>
+                    <li>Importer ou exporter les données dans divers formats. (CSV, XML, PDF, OpenDocument, Word, Excel et LaTeX)</li>
+                </ul>
+
+            <p>Tout débute par la commande d'installation <br>
+            <span class="terminal">sudo apt install phpmyadmin</span></p>
+
+            <img src="{{ asset('build/images/myadmin1.png') }}" class="illustration" alt="choix type serveur">
+
+            <p>On choisit donc bien Apache2 ici, car c'est ce que nous avons installé plus haut.</p>
+
+            <img src="{{ asset('build/images/myadmin2.png') }}" class="illustration" alt="créer base de données">
+
+            <p>Ici ce n'est pas l'heure de se prendre pour un héros on choisit oui pour une configuration rapide (nous n'avons pas encore les
+            épaules pour subir l'installation manuelle)</p>
+
+            <img src="{{ asset('build/images/myadmin3.png') }}" alt="définir mot de passe" class="illustration">
+
+            <p>Maintenant nous définissons notre mot de passe:</p>
+
+            <img src="{{ asset('build/images/myadmin4.png') }}" alt="mot de passe root" class="illustration">
+
+            <p>Indiquer le mot de passe de l'utilisateur MySQL « root » tel que défini à l'installation de mysql-server :</p>
+
+            <p>Php devrait maintenant être accessible depuis l'adresse <a href="http://localhost/phpmyadmin"></a></p>
+
+            <p>Le nom d'utilisateur sera bien root et votre mot de passe définit plus tôt.</p>
+
+
+
+
+
+
+
+
 
         </div>
     </main>

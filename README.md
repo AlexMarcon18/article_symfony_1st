@@ -97,3 +97,58 @@ ou
 <p> Et voila, il vous suffit maintenant de lancer votre serveur local depuis votre navigateur en entrant une des deux URL suivantes <br>
   https://localhost:8000/ <br>
   ou bien encore: https://127.0.0.1:8000/ </p>
+
+# <h1>Associer une base de données:</h1>
+
+<p>Maintenant, vous avez accées au projet sur serveur local.</p>
+<p>Cela nous arrange, car vous aurez besoin de quelques pré-requis pour cette partie qui sont 
+expliqués dans mes articles !</p>
+
+<p>Tout d'abord, il faudra se configurer un serveur, pour cela je vous laisse vous reporter à ma rubrique environnement
+vous avez un sous-article nommé SGBD ou vous trouverez notamment:</p>
+
+<ul>
+<li>l'installation d'un environment LAMP</li>
+<li>l'installation et la configuration de mysql server</li>
+<li>et enfin l'installation de l'interface de BDD: phpmyadmin</li>
+</ul>
+
+<p>Une fois cela fait, vous avez tout le nécessaire pour créer, modifier, acceder a vos bases de données.</p>
+
+<p>La première étape pour creer du lien entre le projet et votre base de données et de revenir sur votre fichier .env
+que vous avez déjà modifié précédemment.</p>
+
+<p>Dans le fichier.env il faudra remplacer la ligne DATABASE_URL pour y insérer les informations de votre serveur local:
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"</p>
+
+<p>Inserer votre nom d'user, votre mot de passe et le nom de la base de données associés a votre projet</p>
+
+<p>Maintenant deux choix s'offre à vous:</p>
+
+<ul>
+    <li>Vous pouvez créer votre propre base de données en suivant les étapes expliquée dans mon article Notre base de données.
+    vous y trouverez toutes les explications sur les base de données ainsi que la méthode de conception de celle-ci grace au maker bundle de symfony.</li>
+    <li>Sinon, comme je suis grand prince, j'en ai déjà créer une dont le fichier de version se trouve dans ce projet ! afin de l'utiliser, quelques étapes seront à suivre</li>
+</ul>
+
+<p>Je vois que vous choisissez la deuxième étape, pour se faire on va successivement:</p>
+
+Installer le maker bundle ainsi que doctrine grâce aux commandes suivantes:
+
+     composer require symfony/orm-pack 
+
+    composer require --dev symfony/maker-bundle
+
+<p>Les explications de ces lignes sont dans l'article notre base de données. ils correspondent à l'installation d'ORM
+ainsi qu'à l'installation du maker-bundle pour symfony</p>
+
+<p>Ce projet possède déjà dans son dossier migrations d'une base de données préfaite que le maker bundle va utiliser pour génerer le code
+SQL qui va créer cette base de données.</p>
+
+<p>Ce code sera:</p>
+
+        php bin/console doctrine:migrations:migrate 
+
+<p>Une fois cette étape passée, vous pouvez aller sur l'interface Phpmyadmin afin de vérifier que la base de données se soit bien créer.</p>
+
+# <h2>Merci pour votre lecture !</h2>
