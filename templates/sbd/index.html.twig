@@ -12,6 +12,8 @@
             <li id="list-nav"><a href="#MLD">3. Passage au MLD </a> </li>
             <li id="list-nav"><a href="#MPD">4. Passage au MPD </a> </li>
             <li id="list-nav"><a href="#DOCTRINEORM">4. Mise en place avec symfony </a> </li>
+            <li id="list-nav"><a href="#utildoctrine">5. Utilisation de doctrine</a> </li>
+
         </ol>
     </div>
 
@@ -313,6 +315,82 @@
 
             <p>Le mapping objet-relationnel consiste à déclarer une association entre une (ou plusieurs) classes et une
                 table, et chaque attribut de la classe avec un champ de la table associée.</p>
+
+
+            <p>Avant toute chose, il nous faudra installer les packages nécessaires au fonctionnement de Doctrine.</p>
+
+            <p>On utilisera alors les deux commandes suivantes (l'installation se fait via composer): <br>
+            <span class="terminal">composer require symfony/orm-pack <br>
+
+            composer require --dev symfony/maker-bundle</span></p>
+
+            <p>Les commandes ci-dessus servent à installer les paquets ORM ainsi que le maker bundle qui génèrera du code sous symfony via la console.</p>
+
+            <p>Enfin, dans le fichier.env il faudra remplacer la ligne <span class="terminal">DATABASE_URL</span> pour y insérer les informations de votre serveur local:
+                <br>
+            <span class="terminal">DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"</span></p>
+
+
+            <hr id="utildoctrine">
+
+            <h3>Utilisation de doctrine</h3>
+
+            <p>Une fois le fichier .env à jour avec vos données, vous pouvez créer votre base de données depuis la console.
+                <br>
+                <span class="terminal">php bin/console doctrine:database:create</span> <br>
+                Une fois cela réalisé, les modifications de structure de votre base de données devront être réalisées avec la console pour que Symfony puisse faire le lien entre les tables</p>
+
+            <p>Nous allons maintenant créer nos premières entités. <br>
+            <span class="terminal">php bin/console make:entity</span> <br>
+                Utilisez la commande make:entity (qui est dans le bundle maker) pour avoir une série de questions vous permettant de créer votre entité avec l'u
+                Vous pouvez créer une nouvelle entité ou modifier (ajouter des champs) une entité déjà existante en saisissant son nom
+                <br>
+                Vous allez devoir répondre à une suite de question avec le nom de l'entité (par défaut cela donnera le nom de la table), et les champs à créer. Dans S
+                toujours des champs id, qui est la clé primaire et qui est auto-incrémenté. Vous ne devez donc pas l'ajouter dans la console</p>
+            
+            <p>Pour la création des champs, il vous faudra donner :</p>
+            <ul>
+                <li>son type</li>
+                <li>sa taille le cas échéant</li>
+                <li>si ces champs peut être null</li>
+                <li>s'il doit être unique (index)</li>
+            </ul>
+
+            <p>Vous pouvez obtenir la liste des types supportés en tapant "?" à la question du type.
+                Une fois terminé, le fichier d'Entité et le repository associé sont générés.</p>
+
+            <img src="{{ asset('build/images/make_entity.png') }}" alt="créer une entité" class="illustration">
+
+
+            <p>Et le code de l'entité généré dans src/Entity/Product.php</p>
+
+            <img src="{{ asset('build/images/entitecode.png') }}" alt="code" class="illustration">
+
+
+
+            <p>A ce stade l'entité est créé, mais n'existe pas dans la base de données. Il reste deux étapes à exécuter.
+                <br>
+            Mettre à jour votre base de données : méthode 1 </p>
+           <p> Sans générer de fichier de migration (qui contient toutes les instructions SQL à exécuter sur la base de données, notamment pour le déploiement d'une mise à
+               jour
+            <span class="terminal">php bin/console doctrine:schema:update -f  </span>
+            ou
+            <span class="terminal">php bin/console d:s:u -f  </span> </p>
+
+           <p> Mettre à jour votre base de données : méthode 2</p>
+
+           <p> La création d'un fichier de migration qui va contenir le code SQL a exécuter en fonction de votre SGBD.
+               <br>
+            <span class="terminal">php bin/console make:migration  </span>  </p>
+
+           <p> La mise à jour de votre base de données en fonction du fichier précédemment généré.
+           <span class="terminal"> php bin/console doctrine:migrations:migrate </span> </p>
+
+           <p> Si vous consultez votre PHPMyAdmin vous verrez la table apparaître.</p>
+
+
+
+
 
         </div>
     </main>
