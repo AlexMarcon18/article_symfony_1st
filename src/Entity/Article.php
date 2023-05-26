@@ -35,9 +35,13 @@ class Article
     #[ORM\Column(length: 50)]
     private ?string $slug = null;
 
+    #[ORM\OneToMany(mappedBy: 'art_img', targetEntity: Images::class, orphanRemoval: true)]
+    private Collection $images;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -125,6 +129,36 @@ class Article
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setArtImg($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getArtImg() === $this) {
+                $image->setArtImg(null);
+            }
+        }
 
         return $this;
     }
