@@ -9,11 +9,14 @@
         </div>
         <div>
             <ol class="nav-item">
-                <li><a href="/config"> Environnement</a></li>
-                <li><a href="/first"> Premier projet</a> </li>
-                <li><a href="/structure"> Structure du projet</a></li>
-                <li><a href="/sbd"> Notre base de données</a></li>
-                <li><a href="/bibliographie"> Bibliographies</a></li>
+{#            {%for article in Article %}#}
+{#                <li><a href="{{ path('/titreart.slug') }}"> {{ article.titreart }}</a></li>#}
+{#            {% endfor %}#}
+                <li><a href="/config/environnement"> Environnement</a></li>
+                <li><a href="/first/first"> Premier projet</a> </li>
+                <li><a href="/structure/structure"> Structure du projet</a></li>
+                <li><a href="/sbd/sbd"> Notre base de données</a></li>
+                <li><a href="/bibliographie/bibliographie"> Bibliographies</a></li>
             </ol>
         </div>
     </div>
