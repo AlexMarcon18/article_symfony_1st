@@ -12,8 +12,8 @@ class CategoriesFixtures extends Fixture
          $category = new categories();
          $category-> setName('categories');
 
-         $category->persist($category);
+         $manager->persist($category);
 
-         $category->flush();
+         $manager->flush();
     }
 }
