@@ -14,7 +14,7 @@ class AboutController extends AbstractController
     public function index(ArticleRepository $ArticleRepository, Article $article): Response
     {
         return $this->render('config/index.html.twig', [
-            'Article' => $ArticleRepository->findAll(),
+            //'Article' => $ArticleRepository->findAll(),
             'currentPage' => $article,
 
         ]);
