@@ -76,6 +76,8 @@ Une fois installé sur votre machine, vous pouvez utiliser la commande suivante 
 
     $ composer require symfony/webpack-encore-bundle
 
+<p>Cette étape n'est plus nécessaire étant donné que le webpack encore se trouve dans notre fichier compose.json</p>
+
   Une fois le webpack intégré à notre projet, on pourra utiliser la commande avec yarn ou avec npm (les lignes de commandes diffèrent un peu): <br>
 
     $ yarn build
@@ -87,7 +89,7 @@ ou
   </li>
   <li>  Enfin, nous pourrons lancer la commande qui servira à lancer notre server local: <br>
 
-    $ symfony start:server
+    $ symfony server:start
   On peut également utiliser une syntaxe plus courte:
 
      $ symfony serve
@@ -97,6 +99,12 @@ ou
 <p> Et voila, il vous suffit maintenant de lancer votre serveur local depuis votre navigateur en entrant une des deux URL suivantes <br>
   https://localhost:8000/ <br>
   ou bien encore: https://127.0.0.1:8000/ </p>
+
+<p>De temps en temps, lors de mise à jour du projet, il peut être profitable de faire un:
+
+           composer clear-cache    
+
+</p>
 
 # <h1>Associer une base de données:</h1>
 
@@ -142,12 +150,9 @@ Installer le maker bundle ainsi que doctrine grâce aux commandes suivantes:
 <p>Les explications de ces lignes sont dans l'article notre base de données. ils correspondent à l'installation d'ORM
 ainsi qu'à l'installation du maker-bundle pour symfony</p>
 
-<p>Ce projet possède déjà dans son dossier migrations d'une base de données préfaite que le maker bundle va utiliser pour génerer le code
-SQL qui va créer cette base de données.</p>
+<p>Ce projet possède déjà une base de données remplies par mes soins que vous retrouverez dans le dossier doc-projet-symfony dans un zip,
+vous pouvez copier le contenu de ce fichier dans PHPmyadmin afin de créer automatiquement ma base de données:</p>
 
-<p>Ce code sera:</p>
-
-        php bin/console doctrine:migrations:migrate 
 
 <p>Une fois cette étape passée, vous pouvez aller sur l'interface Phpmyadmin afin de vérifier que la base de données se soit bien créer.</p>
 
